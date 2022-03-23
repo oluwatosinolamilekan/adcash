@@ -29,10 +29,12 @@ class StockTest extends TestCase
     }
     public function test_update_stock()
     {
+
+        $stock = Stock::first();
         $data = [
+            'name' => $stock->name,
             'unit_price' => $this->faker->randomNumber(2)
         ];
-        $stock = Stock::first();
         $this->json('put','api/stock/update/'.$stock->id, $data)->assertStatus(200);
     }
 

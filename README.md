@@ -51,6 +51,7 @@ Create an application stock management. The application should have the followin
 - Update DB credentials to match with your db
 - Run php artisan migrate to migrate database tables
 - Run php artisan db:seed to seed the default records
+- Run php artisan serve
 - Run npm install
 - Run npm watch run
 ## Running Test

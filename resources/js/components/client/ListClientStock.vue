@@ -3,24 +3,30 @@
         <div class="col-12">
             <div class="card card-default">
                 <div class="card-header">
-                    <h2>Clients</h2>
+                    <h2>Client Stocks</h2>
                     <div class="align-items-center px-3 px-md-5">
-                        <router-link to="/client/create"  class="btn btn-primary btn-sm float-right mb-2">Add Client</router-link>
+                        <router-link to="/client/create"  class="btn btn-primary btn-sm float-right mb-2">Add Client Stock</router-link>
                     </div>
                 </div>
                 <div class="card-body">
                     <table id="productsTable" class="table table-hover table-product" style="width:100%">
                         <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>investment Fund</th>
+                            <th>Company</th>
+                            <th>Volume</th>
+                            <th>Purchase Price</th>
+                            <th>Current Price</th>
+                            <th>Gain/Loss</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr  v-for="client in clients" v-bind:key="clients.id">
 
-                            <td>{{ client.name }}</td>
-                            <td>{{ client.investment_fund }}</td>
+                            <td>{{ client.company }}</td>
+                            <td>{{ client.volume }}</td>
+                            <td>{{ client.volume }}</td>
+                            <td>{{ client.volume }}</td>
+                            <td>{{ client.volume }}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -32,7 +38,7 @@
 
 <script>
 export default {
-    name: "ListClient",
+    name: "ListClientStock",
     data(){
         return {
             clients: []
@@ -43,22 +49,14 @@ export default {
     },
     methods: {
         getRecords(){
-            axios.get('api/client/index')
+            axios.get('api/client-stock/index')
                 .then((response) => {
                     this.clients = response.data.data
                 }).catch((err) => {
-                    console.log(err)
-            })
-        },
-        deleteStock(id){
-            axios.delete(`api/client/delete/${id}`)
-                .then((response) => {
-                    let i = this.clients.map(data => data.id).indexOf(id);
-                    this.clients.splice(i, 1)
-                }).catch((err) => {
                 console.log(err)
             })
-        }
+        },
+
     },
 }
 </script>

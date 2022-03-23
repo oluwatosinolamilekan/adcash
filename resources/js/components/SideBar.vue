@@ -17,11 +17,12 @@
         </li>
 
         <li>
-            <a class="sidenav-item-link" href="analytics.html">
+            <router-link to="/client-stocks" class="sidenav-item-link">
                 <i class="mdi mdi-chart-pie"></i>
                 <span class="nav-text">Client Stock</span>
-            </a>
+            </router-link>
         </li>
+
 
     </ul>
 </template>

@@ -14,6 +14,10 @@ class ClientStockResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'company' => $this->stock->name,
+            'volume' => $this->volume
+        ];
     }
 }

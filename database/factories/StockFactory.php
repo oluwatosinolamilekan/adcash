@@ -14,7 +14,7 @@ class StockFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->sentence(5),
+            'name' => $this->faker->unique()->company,
             'unit_price' => $this->faker->randomNumber(2),
         ];
     }

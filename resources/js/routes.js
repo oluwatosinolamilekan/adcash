@@ -3,6 +3,7 @@ import CreateStock from "./components/stock/CreateStock";
 import EditStock from "./components/stock/EditStock";
 import ListClient from "./components/client/ListClient";
 import CreateClient from "./components/client/CreateClient";
+import ListClientStock from "./components/client/ListClientStock";
 
 export const routes = [
     {
@@ -29,5 +30,11 @@ export const routes = [
         path: '/client/create',
         name: 'CreateClient',
         component: CreateClient,
+    },
+    {
+        path: '/client-stocks',
+        name: 'ListClientStock',
+        component: ListClientStock,
     }
+
 ];

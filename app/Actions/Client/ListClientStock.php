@@ -8,6 +8,6 @@ class ListClientStock
 {
     public function action()
     {
-        return ClientStock::paginate(20);
+        return ClientStock::latest()->paginate(20);
     }
 }

@@ -5,7 +5,7 @@
                 <div class="card-header">
                     <h2>Client Stocks</h2>
                     <div class="align-items-center px-3 px-md-5">
-                        <router-link to="/client/create"  class="btn btn-primary btn-sm float-right mb-2">Add Client Stock</router-link>
+                        <router-link to="/create/client-stock"  class="btn btn-primary btn-sm float-right mb-2">Add Client Stock</router-link>
                     </div>
                 </div>
                 <div class="card-body">
@@ -21,7 +21,6 @@
                         </thead>
                         <tbody>
                         <tr  v-for="client in clients" v-bind:key="clients.id">
-
                             <td>{{ client.company }}</td>
                             <td>{{ client.volume }}</td>
                             <td>{{ client.volume }}</td>

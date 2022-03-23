@@ -10,13 +10,15 @@ class ClientStock extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['client_id','stock_id','volume'];
+
     public function stock(): BelongsTo
     {
-        return $this->belongsTo(Stock::class);
+        return $this->belongsTo(Stock::class,'stock_id');
     }
 
     public function client(): BelongsTo
     {
-        return $this->belongsTo(Client::class);
+        return $this->belongsTo(Client::class,'client_id');
     }
 }

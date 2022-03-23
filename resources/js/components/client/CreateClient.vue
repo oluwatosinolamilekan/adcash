@@ -15,7 +15,7 @@
                         <div class="row">
                             <div class="col-xl-6">
                                 <div class="mb-5">
-                                    <label class="text-dark font-weight-medium">Name</label>
+                                    <label class="text-dark font-weight-medium">Client</label>
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" v-model="form.name" required/>
                                     </div>

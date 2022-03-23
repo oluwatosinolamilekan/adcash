@@ -16,8 +16,9 @@ class ClientStockResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'company' => $this->stock->name,
-            'volume' => $this->volume
+            'volume' => $this->volume,
+            'stock' => $this->stock->name ?? null,
+            'company' => $this->client->name ?? null
         ];
     }
 }

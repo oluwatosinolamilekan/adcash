@@ -15,10 +15,10 @@ class ClientController extends Controller
     {
         try {
             $clients = (new ListClient())->action();
+            return ClientResource::collection($clients);
         }catch (Exception $exception){
             $this->errorResource($exception->getMessage());
         }
-        return ClientResource::collection($clients);
     }
 
     public function store(StoreClientRequest  $request)

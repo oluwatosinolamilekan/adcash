@@ -10,11 +10,7 @@ class CreateClientStock
     public function action($request)
     {
         DB::beginTransaction();
-        $clientStock = new ClientStock();
-        $clientStock->client_id = $request['client_id'];
-        $clientStock->stock_id = $request['stock_id'];
-        $clientStock->volume = $request['volume'];
-        $clientStock->save();
+        $clientStock = ClientStock::create($request);
         DB::commit();
         return $clientStock;
     }

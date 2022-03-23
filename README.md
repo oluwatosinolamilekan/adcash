@@ -54,6 +54,7 @@ Create an application stock management. The application should have the followin
 - Run php artisan serve
 - Run npm install
 - Run npm watch run
+
 ## Running Test
 - Run php artisan test
 

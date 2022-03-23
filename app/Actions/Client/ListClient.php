@@ -8,6 +8,6 @@ class ListClient
 {
     public function action()
     {
-        return Client::paginate(20);
+        return Client::latest()->paginate(20);
     }
 }

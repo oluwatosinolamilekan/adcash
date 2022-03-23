@@ -5,7 +5,7 @@
                 <div class="card-header">
                     <h2>Clients</h2>
                     <div class="align-items-center px-3 px-md-5">
-                        <router-link to="/create"  class="btn btn-primary btn-sm float-right mb-2">Add Client</router-link>
+                        <router-link to="/client/create"  class="btn btn-primary btn-sm float-right mb-2">Add Client</router-link>
                     </div>
                 </div>
                 <div class="card-body">
@@ -13,17 +13,12 @@
                         <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr  v-for="client in clients" v-bind:key="clients.id">
 
                             <td>{{ client.name }}</td>
-                            <td>
-<!--                                <router-link :to="{name: 'EditStock', params: { id: stock.id }}" class="btn btn-secondary">Edit</router-link>-->
-                                <button class="btn btn-danger" @click="deleteStock(client.id)">Delete</button>
-                            </td>
                         </tr>
                         </tbody>
                     </table>

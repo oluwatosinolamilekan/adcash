@@ -10,9 +10,7 @@ class CreateClient
     public function action($request)
     {
         DB::beginTransaction();
-        $client = new Client();
-        $client->name = $request['name'];
-        $client->save();
+        $client =  Client::create($request);
         DB::commit();
         return $client;
     }

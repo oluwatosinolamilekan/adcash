@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Client extends Model
 {
@@ -11,18 +12,18 @@ class Client extends Model
 
     protected $fillable = ['name'];
 
-    public function client_stocks()
+    public function client_stocks(): HasMany
     {
         return $this->hasMany(ClientStock::class, 'client_id');
     }
 
+    public function stocks(): HasMany
+    {
+        return $this->hasMany(ClientStock::class, 'stock_id');
+    }
+
     public function sumClientStock()
     {
-//        dd($this->client_stocks()->stock()->each( function ($stock, $key){
-//            dd($stock);
-//            return $stock->sum('unit_price');
-//        }));
-//        return $this->client_stocks()->with('stock');
         return 1000;
     }
 

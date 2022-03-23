@@ -24,10 +24,11 @@
 
                             <td>{{ stock.stock }}</td>
                             <td>{{ stock.volume }}</td>
-                            <td></td>
+                            <td>{{ stock.volume * client.unit_price}}</td>
                             <td>
+                                {{client.unit_price}}
                             </td>
-                            <td></td>
+                            <td>{{client.unit_price - (stock.volume * client.unit_price)}}</td>
                         </tr>
                         </tbody>
                     </table>

@@ -22,7 +22,7 @@ Create an application stock management. The application should have the followin
 - Purchase a stock for a client
 - List of purchased stocks per client
 
-##ERD DB Structure
+## ERD DB Structure
 ![alt text](edr.png)
 
 

@@ -22,6 +22,9 @@ Create an application stock management. The application should have the followin
 - Purchase a stock for a client
 - List of purchased stocks per client
 
+##ERD DB Structure
+![alt text](edr.png)
+
 
 ## Domain Requirements
 - Each new client should have a € 1000 virtual investment portfolio by default.
@@ -37,6 +40,7 @@ Create an application stock management. The application should have the followin
 - Laravel
 - Mysql
 - Vuejs
+
 
 ## How to run the application
  Below are the steps you need to successfully setup and run the application.

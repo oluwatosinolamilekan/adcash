@@ -6,7 +6,10 @@ use App\Actions\Client\CreateClient;
 use App\Actions\Client\ListClient;
 use App\Http\Requests\StoreClientRequest;
 use App\Http\Resources\ClientResource;
+use App\Http\Resources\ShowClientStockResouce;
+use App\Models\Client;
 use Exception;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -28,7 +31,19 @@ class ClientController extends Controller
             $client = (new CreateClient())->action($validate);
             return new ClientResource($client);
         }catch (Exception $exception){
-            $this->errorResource($exception->getMessage());
+            return $this->errorResource($exception->getMessage());
+        }
+    }
+
+    public function showClientStocks($id)
+    {
+        try {
+            $client = Client::where('id',$id)->firstOrFail();
+            return new ShowClientStockResouce($client);
+        }catch (ModelNotFoundException $exception){
+            return $this->errorResource('Client Not Found');
+        }catch (Exception $exception){
+            return $this->errorResource($exception->getMessage());
         }
     }
 }

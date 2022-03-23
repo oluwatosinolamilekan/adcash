@@ -20,7 +20,7 @@ class Controller extends BaseController
             ], 201);
     }
 
-    protected function errorResource($error): JsonResponse
+    protected function errorResource($error)
     {
         return response()->json([
             'status' => 'failed',

@@ -11,4 +11,9 @@ class Client extends Model
 
     protected $fillable = ['name'];
 
+    public function client_stocks()
+    {
+        return $this->hasMany(ClientStock::class, 'client_id');
+    }
+
 }

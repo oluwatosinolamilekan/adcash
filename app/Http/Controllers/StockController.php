@@ -22,7 +22,7 @@ class StockController extends Controller
             $stocks =  (new ListStock())->action();
             return StockResource::collection($stocks);
         }catch (Exception $exception){
-            $this->errorResource($exception->getMessage());
+            return $this->errorResource($exception->getMessage());
         }
     }
 
@@ -33,7 +33,7 @@ class StockController extends Controller
             $stock =  (new CreateStock())->action($validated);
             return new StockResource($stock);
         }catch (Exception $exception){
-            $this->errorResource($exception->getMessage());
+            return $this->errorResource($exception->getMessage());
         }
     }
 
@@ -41,12 +41,12 @@ class StockController extends Controller
     {
         try {
             $stock = Stock::where('id', $id)->firstOrFail();
+            return new StockResource($stock);
         }catch (ModelNotFoundException $exception){
-            $this->errorResource('Stock Not Found');
+            return  $this->errorResource('Stock Not Found');
         }catch (Exception $exception){
-            $this->errorResource($exception->getMessage());
+            return  $this->errorResource($exception->getMessage());
         }
-        return new StockResource($stock);
     }
 
     public function update(UpdateStockRequest $request, $id)
@@ -56,9 +56,9 @@ class StockController extends Controller
             $stock = (new UpdateStock())->action($validate, $id);
             return new StockResource($stock);
         }catch (ModelNotFoundException $exception){
-            $this->errorResource('Stock Not Found');
+            return $this->errorResource('Stock Not Found');
         }catch (Exception $exception){
-            $this->errorResource($exception->getMessage());
+            return $this->errorResource($exception->getMessage());
         }
     }
 

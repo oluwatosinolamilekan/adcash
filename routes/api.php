@@ -34,6 +34,7 @@ Route::prefix('stock')->group(function () {
 Route::prefix('client')->group(function () {
     Route::get('/index', [ClientController::class, 'index']);
     Route::post('/store', [ClientController::class, 'store']);
+    Route::get('/show/{id}',[ClientController::class, 'showClientStocks']);
 });
 
 //

@@ -17,9 +17,11 @@ class ClientStockController extends Controller
             $client_stocks = (new ListClientStock())->action();
             return ClientStockResource::collection($client_stocks);
         }catch (Exception $exception){
-            $this->errorResource($exception->getMessage());
+            return $this->errorResource($exception->getMessage());
         }
     }
+
+
     public function store(StoreClientStockRequest $request)
     {
         try {
@@ -27,7 +29,9 @@ class ClientStockController extends Controller
             $client_stock = (new CreateClientStock())->action($validate);
             return new ClientStockResource($client_stock);
         }catch (Exception $exception){
-            $this->errorResource($exception->getMessage());
+            return $this->errorResource($exception->getMessage());
         }
     }
+
+
 }

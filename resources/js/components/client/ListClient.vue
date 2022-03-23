@@ -13,14 +13,20 @@
                         <thead>
                         <tr>
                             <th>Name</th>
-                            <th>investment Fund</th>
+                            <th>Cash Balance</th>
+                            <th>Gain Loss</th>
+                            <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr  v-for="client in clients" v-bind:key="clients.id">
+                        <tr  v-for="client in clients" v-bind:key="client.id">
 
                             <td>{{ client.name }}</td>
                             <td>{{ client.investment_fund }}</td>
+                            <td></td>
+                            <td>
+                                <router-link :to="{name: 'ShowClientStock', params: { id: client.id }}" class="btn btn-primary btn-sm">Show Stock</router-link>
+                            </td>
                         </tr>
                         </tbody>
                     </table>

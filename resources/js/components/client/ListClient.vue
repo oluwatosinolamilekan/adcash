@@ -3,9 +3,9 @@
         <div class="col-12">
             <div class="card card-default">
                 <div class="card-header">
-                    <h2>Advertising campaign</h2>
+                    <h2>Clients</h2>
                     <div class="align-items-center px-3 px-md-5">
-<!--                        <router-link to="/create"  class="btn btn-primary">Create</router-link>-->
+                        <router-link to="/create"  class="btn btn-primary btn-sm float-right mb-2">Add Client</router-link>
                     </div>
                 </div>
                 <div class="card-body">
@@ -13,20 +13,16 @@
                         <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Date</th>
-                            <th>Total Budget</th>
-                            <th>Daily Budget</th>
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr >
+                        <tr  v-for="client in clients" v-bind:key="clients.id">
 
-                            <td>Name</td>
-                            <td>Date</td>
-                            <td>Total</td>
-                            <td>Budget</td>
+                            <td>{{ client.name }}</td>
                             <td>
+<!--                                <router-link :to="{name: 'EditStock', params: { id: stock.id }}" class="btn btn-secondary">Edit</router-link>-->
+                                <button class="btn btn-danger" @click="deleteStock(client.id)">Delete</button>
                             </td>
                         </tr>
                         </tbody>
@@ -52,9 +48,18 @@ export default {
         getRecords(){
             axios.get('api/client/index')
                 .then((response) => {
-                    console.log(response.data)
+                    this.clients = response.data.data
                 }).catch((err) => {
                     console.log(err)
+            })
+        },
+        deleteStock(id){
+            axios.delete(`api/client/delete/${id}`)
+                .then((response) => {
+                    let i = this.clients.map(data => data.id).indexOf(id);
+                    this.clients.splice(i, 1)
+                }).catch((err) => {
+                console.log(err)
             })
         }
     },

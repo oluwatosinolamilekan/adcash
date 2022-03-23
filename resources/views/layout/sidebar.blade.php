@@ -10,16 +10,8 @@
         <!-- begin sidebar scrollbar -->
         <div class="sidebar-left" data-simplebar style="height: 100%;">
             <!-- sidebar menu -->
-            <ul class="nav sidebar-inner" id="sidebar-menu">
 
-
-                <li
-                    class="active"
-                >
-
-                </li>
-
-            </ul>
+            <side-bar></side-bar>
 
         </div>
 

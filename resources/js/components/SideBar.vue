@@ -1,5 +1,29 @@
 <template>
+    <ul class="nav sidebar-inner" id="sidebar-menu">
 
+        <li class="active">
+            <router-link to="/" class="sidenav-item-link">
+                <i class="mdi mdi-briefcase-account-outline"></i>
+                <span class="nav-text">Stock</span>
+            </router-link>
+        </li>
+
+
+        <li>
+            <router-link to="/clients" class="sidenav-item-link">
+                <i class="mdi mdi-account-supervisor"></i>
+                <span class="nav-text">Client</span>
+            </router-link>
+        </li>
+
+        <li>
+            <a class="sidenav-item-link" href="analytics.html">
+                <i class="mdi mdi-chart-pie"></i>
+                <span class="nav-text">Client Stock</span>
+            </a>
+        </li>
+
+    </ul>
 </template>
 
 <script>

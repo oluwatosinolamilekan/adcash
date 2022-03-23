@@ -8,6 +8,7 @@ use App\Http\Requests\StoreClientRequest;
 use App\Http\Resources\ClientResource;
 use App\Http\Resources\ShowClientStockResouce;
 use App\Models\Client;
+use App\Models\Stock;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
@@ -38,8 +39,8 @@ class ClientController extends Controller
     public function showClientStocks($id)
     {
         try {
-            $client = Client::where('id',$id)->firstOrFail();
-            return new ShowClientStockResouce($client);
+            $client = Client::with('client_stocks')->where('id',$id)->firstOrFail();
+            return new ClientResource($client);
         }catch (ModelNotFoundException $exception){
             return $this->errorResource('Client Not Found');
         }catch (Exception $exception){

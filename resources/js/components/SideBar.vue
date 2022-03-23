@@ -1,7 +1,7 @@
 <template>
     <ul class="nav sidebar-inner" id="sidebar-menu">
 
-        <li class="active">
+        <li class="">
             <router-link to="/" class="sidenav-item-link">
                 <i class="mdi mdi-briefcase-account-outline"></i>
                 <span class="nav-text">Stock</span>

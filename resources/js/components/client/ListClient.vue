@@ -22,7 +22,7 @@
                         <tr  v-for="client in clients" v-bind:key="client.id">
 
                             <td>{{ client.name }}</td>
-                            <td>{{ client.investment_fund }}</td>
+                            <td>{{ numberFormat(client.unit_price) }}</td>
                             <td></td>
                             <td>
                                 <router-link :to="{name: 'ShowClientStock', params: { id: client.id }}" class="btn btn-primary btn-sm">Show Stock</router-link>
@@ -64,6 +64,9 @@ export default {
                 }).catch((err) => {
                 console.log(err)
             })
+        },
+        numberFormat(n){
+            return "€ " + (Math.round(n * 100) / 100).toFixed(2);
         }
     },
 }

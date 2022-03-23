@@ -18,7 +18,8 @@ class ClientStockResource extends JsonResource
             'id' => $this->id,
             'volume' => $this->volume,
             'stock' => $this->stock->name ?? null,
-            'company' => $this->client->name ?? null
+            'company' => $this->client->name ?? null,
+//            'stock_price' => $this->sumClientStock()
         ];
     }
 }

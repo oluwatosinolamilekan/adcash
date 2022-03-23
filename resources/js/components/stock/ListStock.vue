@@ -14,6 +14,7 @@
                         <tr>
                             <th>Name</th>
                             <th>Unit Price</th>
+                            <th>Updated at</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -22,6 +23,7 @@
 
                             <td>{{ stock.name }}</td>
                             <td>{{ stock.unit_price }}</td>
+                            <td>{{ stock.updated_at }}</td>
                             <td>
                                 <router-link :to="{name: 'EditStock', params: { id: stock.id }}" class="btn btn-secondary">Edit</router-link>
                                 <button class="btn btn-danger" @click="deleteStock(stock.id)">Delete</button>
@@ -63,7 +65,8 @@ export default {
                 }).catch((err) => {
                     console.log(err)
             })
-        }
+        },
+
     },
 }
 </script>

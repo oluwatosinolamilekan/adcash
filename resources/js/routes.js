@@ -44,7 +44,7 @@ export const routes = [
         component: CreateClientStock,
     },
     {
-        path: '/show/client-stock',
+        path: '/show/client-stock/:id',
         name: 'ShowClientStock',
         component: ShowClientStock,
     }

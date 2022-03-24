@@ -16,10 +16,18 @@ class ClientStock extends Model
 
     protected $fillable = ['client_id','stock_id','volume'];
 
+    /**
+     * @return BelongsTo
+     */
+
     public function stock(): BelongsTo
     {
         return $this->belongsTo(Stock::class,'stock_id');
     }
+
+    /**
+     * @return BelongsTo
+     */
 
     public function client(): BelongsTo
     {

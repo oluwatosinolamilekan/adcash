@@ -25,8 +25,16 @@
                             <td>{{ stock.unit_price }}</td>
                             <td>{{ stock.updated_at }}</td>
                             <td>
-                                <router-link :to="{name: 'EditStock', params: { id: stock.id }}" class="btn btn-secondary">Edit</router-link>
-                                <button class="btn btn-danger" @click="deleteStock(stock.id)">Delete</button>
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                        <router-link :to="{name: 'EditStock', params: { id: stock.id }}" class="dropdown-item">Update Unit Price</router-link>
+                                        <button class="dropdown-item" @click="deleteStock(stock.id)">Delete</button>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         </tbody>

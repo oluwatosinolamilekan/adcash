@@ -6115,6 +6115,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ListStock",
   data: function data() {
@@ -30687,38 +30695,59 @@ var render = function () {
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(stock.updated_at))]),
                     _vm._v(" "),
-                    _c(
-                      "td",
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            staticClass: "btn btn-secondary",
-                            attrs: {
-                              to: {
-                                name: "EditStock",
-                                params: { id: stock.id },
-                              },
-                            },
+                    _c("td", [
+                      _c("div", { staticClass: "dropdown" }, [
+                        _c("a", {
+                          staticClass: "dropdown-toggle icon-burger-mini",
+                          attrs: {
+                            href: "#",
+                            role: "button",
+                            id: "dropdownMenuLink",
+                            "data-toggle": "dropdown",
+                            "aria-haspopup": "true",
+                            "aria-expanded": "false",
+                            "data-display": "static",
                           },
-                          [_vm._v("Edit")]
-                        ),
+                        }),
                         _vm._v(" "),
                         _c(
-                          "button",
+                          "div",
                           {
-                            staticClass: "btn btn-danger",
-                            on: {
-                              click: function ($event) {
-                                return _vm.deleteStock(stock.id)
-                              },
-                            },
+                            staticClass: "dropdown-menu dropdown-menu-right",
+                            attrs: { "aria-labelledby": "dropdownMenuLink" },
                           },
-                          [_vm._v("Delete")]
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "dropdown-item",
+                                attrs: {
+                                  to: {
+                                    name: "EditStock",
+                                    params: { id: stock.id },
+                                  },
+                                },
+                              },
+                              [_vm._v("Update Unit Price")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "dropdown-item",
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.deleteStock(stock.id)
+                                  },
+                                },
+                              },
+                              [_vm._v("Delete")]
+                            ),
+                          ],
+                          1
                         ),
-                      ],
-                      1
-                    ),
+                      ]),
+                    ]),
                   ])
                 }),
                 0

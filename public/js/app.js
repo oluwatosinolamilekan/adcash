@@ -5676,6 +5676,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ListClient",
   data: function data() {
@@ -30027,25 +30036,46 @@ var render = function () {
                     _vm._v(" "),
                     _c("td"),
                     _vm._v(" "),
-                    _c(
-                      "td",
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            staticClass: "btn btn-primary btn-sm",
-                            attrs: {
-                              to: {
-                                name: "ShowClientStock",
-                                params: { id: client.id },
-                              },
-                            },
+                    _c("td", [
+                      _c("div", { staticClass: "dropdown" }, [
+                        _c("a", {
+                          staticClass: "dropdown-toggle icon-burger-mini",
+                          attrs: {
+                            href: "#",
+                            role: "button",
+                            id: "dropdownMenuLink",
+                            "data-toggle": "dropdown",
+                            "aria-haspopup": "true",
+                            "aria-expanded": "false",
+                            "data-display": "static",
                           },
-                          [_vm._v("Show Stock")]
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "dropdown-menu dropdown-menu-right",
+                            attrs: { "aria-labelledby": "dropdownMenuLink" },
+                          },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "dropdown-item",
+                                attrs: {
+                                  to: {
+                                    name: "ShowClientStock",
+                                    params: { id: client.id },
+                                  },
+                                },
+                              },
+                              [_vm._v("View Stock")]
+                            ),
+                          ],
+                          1
                         ),
-                      ],
-                      1
-                    ),
+                      ]),
+                    ]),
                   ])
                 }),
                 0

@@ -25,7 +25,16 @@
                             <td>{{ numberFormat(client.unit_price) }}</td>
                             <td></td>
                             <td>
-                                <router-link :to="{name: 'ShowClientStock', params: { id: client.id }}" class="btn btn-primary btn-sm">Show Stock</router-link>
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                        <router-link :to="{name: 'ShowClientStock', params: { id: client.id }}" class="dropdown-item">View Stock</router-link>
+<!--                                        <button class="dropdown-item" @click="deleteStock(stock.id)">Delete</button>-->
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         </tbody>

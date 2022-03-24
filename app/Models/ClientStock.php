@@ -19,7 +19,6 @@ class ClientStock extends Model
     /**
      * @return BelongsTo
      */
-
     public function stock(): BelongsTo
     {
         return $this->belongsTo(Stock::class,'stock_id');
@@ -28,7 +27,6 @@ class ClientStock extends Model
     /**
      * @return BelongsTo
      */
-
     public function client(): BelongsTo
     {
         return $this->belongsTo(Client::class,'client_id');

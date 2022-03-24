@@ -9,7 +9,7 @@ require('./bootstrap');
 window.Vue = require('vue').default;
 import VueRouter from 'vue-router';
 import { routes } from './routes';
-// import VeeValidate from 'vee-validate';
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -32,8 +32,14 @@ Vue.component('side-bar', require('./components/SideBar.vue').default);
  */
 
 Vue.use(VueRouter);
-// Vue.use(VeeValidate);
 
+Vue.mixin({
+    methods:{
+        priceFormat(n){
+            return "€ " + (Math.round(n * 100) / 100).toFixed(2);
+        }
+    }
+})
 
 const router = new VueRouter({
     mode: 'history',

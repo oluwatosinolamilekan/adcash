@@ -5902,11 +5902,6 @@ __webpack_require__.r(__webpack_exports__);
       _this.client = response.data.data;
       _this.stocks = response.data.data.stocks;
     });
-  },
-  methods: {
-    numberFormat: function numberFormat(n) {
-      return "€ " + (Math.round(n * 100) / 100).toFixed(2);
-    }
   }
 });
 
@@ -6189,7 +6184,6 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js")["default"]);
 
- // import VeeValidate from 'vee-validate';
 
 /**
  * The following block of code may be used to automatically register your
@@ -6209,8 +6203,14 @@ Vue.component('side-bar', (__webpack_require__(/*! ./components/SideBar.vue */ "
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]); // Vue.use(VeeValidate);
-
+Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+Vue.mixin({
+  methods: {
+    priceFormat: function priceFormat(n) {
+      return "€ " + (Math.round(n * 100) / 100).toFixed(2);
+    }
+  }
+});
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
   routes: _routes__WEBPACK_IMPORTED_MODULE_0__.routes
@@ -30031,7 +30031,7 @@ var render = function () {
                     _c("td", [_vm._v(_vm._s(client.name))]),
                     _vm._v(" "),
                     _c("td", [
-                      _vm._v(_vm._s(_vm.numberFormat(client.unit_price))),
+                      _vm._v(_vm._s(_vm.priceFormat(client.unit_price))),
                     ]),
                     _vm._v(" "),
                     _c("td"),
@@ -30289,7 +30289,7 @@ var render = function () {
                           _c("td", [
                             _vm._v(
                               _vm._s(
-                                _vm.numberFormat(
+                                _vm.priceFormat(
                                   stock.volume * _vm.client.unit_price
                                 )
                               )
@@ -30299,14 +30299,12 @@ var render = function () {
                           _c("td", [
                             _vm._v(
                               "\n                                " +
-                                _vm._s(
-                                  _vm.numberFormat(_vm.client.unit_price)
-                                ) +
+                                _vm._s(_vm.priceFormat(_vm.client.unit_price)) +
                                 "\n                            "
                             ),
                           ]),
                           _vm._v(" "),
-                          _vm.numberFormat(
+                          _vm.priceFormat(
                             _vm.client.unit_price -
                               stock.volume * _vm.client.unit_price
                           ) >= 0
@@ -30321,7 +30319,7 @@ var render = function () {
                                     _vm._v(
                                       "+ " +
                                         _vm._s(
-                                          _vm.numberFormat(
+                                          _vm.priceFormat(
                                             _vm.client.unit_price -
                                               stock.volume *
                                                 _vm.client.unit_price
@@ -30341,7 +30339,7 @@ var render = function () {
                                   _c("span", [
                                     _vm._v(
                                       _vm._s(
-                                        _vm.numberFormat(
+                                        _vm.priceFormat(
                                           _vm.client.unit_price -
                                             stock.volume * _vm.client.unit_price
                                         )

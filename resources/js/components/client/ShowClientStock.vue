@@ -27,21 +27,21 @@
 
                             <td>{{ stock.stock }}</td>
                             <td>{{ stock.volume }}</td>
-                            <td>{{ numberFormat(stock.volume * client.unit_price)}}</td>
+                            <td>{{ priceFormat(stock.volume * client.unit_price)}}</td>
                             <td>
-                                {{numberFormat(client.unit_price)}}
+                                {{priceFormat(client.unit_price)}}
                             </td>
-                            <td v-if="numberFormat(client.unit_price - (stock.volume * client.unit_price)) >= 0">
+                            <td v-if="priceFormat(client.unit_price - (stock.volume * client.unit_price)) >= 0">
                                  <span class="text-success">
                                      <i class="mdi mdi-arrow-up-bold text-success"></i>
-                                     <span>+ {{ numberFormat(client.unit_price - (stock.volume * client.unit_price))}}</span>
+                                     <span>+ {{ priceFormat(client.unit_price - (stock.volume * client.unit_price))}}</span>
                                 </span>
 
                             </td>
                             <td v-else>
                                 <span class="text-danger">
                                     <i class="mdi mdi-arrow-down-bold text-danger"></i>
-                                    <span>{{ numberFormat(client.unit_price - (stock.volume * client.unit_price))}}</span>
+                                    <span>{{ priceFormat(client.unit_price - (stock.volume * client.unit_price))}}</span>
                                 </span>
                             </td>
                         </tr>
@@ -90,11 +90,6 @@ export default {
                 this.stocks = response.data.data.stocks;
             });
     },
-    methods:{
-        numberFormat(n){
-            return "€ " + (Math.round(n * 100) / 100).toFixed(2);
-        }
-    }
 }
 </script>
 

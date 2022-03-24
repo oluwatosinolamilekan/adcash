@@ -14,7 +14,7 @@
                     <form action="" @submit.prevent="addClient()">
                         <div class="row">
                             <div class="col-xl-6" >
-                                <div class="mb-5" >
+                                <div class="mb-5">
                                     <label class="text-dark font-weight-medium">Client</label>
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" v-model="form.name" required/>
@@ -49,6 +49,7 @@ export default {
                     this.$router.push({name: 'ListClient'})
                 })
                 .catch(err =>{
+                    this.allErrors = err.response.data.errors
                     console.log(err.response.data.errors)
                 })
         }

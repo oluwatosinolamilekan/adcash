@@ -18,7 +18,7 @@ class ClientStockFactory extends Factory
         return [
             'stock_id' =>  Stock::inRandomOrder()->take(1)->first()->id,
             'client_id' =>  Client::inRandomOrder()->take(1)->first()->id,
-            'volume' => $this->faker->randomNumber(4),
+            'volume' =>  100
         ];
     }
 }

@@ -19,14 +19,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::truncate();
         Stock::truncate();
         Client::truncate();
         ClientStock::truncate();
 
-        User::factory(10)->create();
-        Stock::factory(30)->create();
-        Client::factory(10)->create();
-        ClientStock::factory(25)->create();
+        Stock::factory(4)->create();
+        Client::factory(4)->create();
+        ClientStock::factory(3)->create();
     }
 }

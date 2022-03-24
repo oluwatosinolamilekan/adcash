@@ -9,9 +9,9 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <table id="productsTable" class="table table-hover table-product" style="width:100%">
+                    <table id="productsTable" class="table table-product" style="width:100%">
                         <thead>
-                        <tr>
+                        <tr v-if="stocks.length > 0">
                             <th>Name</th>
                             <th>Volume</th>
                             <th>Purchase Price</th>
@@ -20,16 +20,48 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr  v-for="stock in stocks" v-bind:key="stock.id">
+                        <tr v-if="stocks.length === 0">
+                            <td>No Client stock </td>
+                        </tr>
+                        <tr  v-for="stock in stocks" v-bind:key="stock.id" v-else>
 
                             <td>{{ stock.stock }}</td>
                             <td>{{ stock.volume }}</td>
-                            <td>{{ stock.volume * client.unit_price}}</td>
+                            <td>{{ numberFormat(stock.volume * client.unit_price)}}</td>
                             <td>
-                                {{client.unit_price}}
+                                {{numberFormat(client.unit_price)}}
                             </td>
-                            <td>{{client.unit_price - (stock.volume * client.unit_price)}}</td>
+                            <td v-if="numberFormat(client.unit_price - (stock.volume * client.unit_price)) >= 0">
+                                 <span class="text-success">
+                                     <i class="mdi mdi-arrow-up-bold text-success"></i>
+                                     <span>+ {{ numberFormat(client.unit_price - (stock.volume * client.unit_price))}}</span>
+                                </span>
+
+                            </td>
+                            <td v-else>
+                                <span class="text-danger">
+                                    <i class="mdi mdi-arrow-down-bold text-danger"></i>
+                                    <span>{{ numberFormat(client.unit_price - (stock.volume * client.unit_price))}}</span>
+                                </span>
+                            </td>
                         </tr>
+<!--                        <tr>-->
+<!--                            <td colspan="6" align="right">Total</td>-->
+<!--                            <td class="total" colspan="2"><b>$ 163.47</b></td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td colspan="6" align="right">Investment</td>-->
+<!--                            <td class="total" colspan="2"><b>$ 163.47</b></td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td colspan="6" align="right">Performance</td>-->
+<!--                            <td class="total" colspan="2"><b>$ 163.47</b></td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td colspan="6" align="right">Cash Balance</td>-->
+<!--                            <td class="total" colspan="2"><b>$ 163.47</b></td>-->
+<!--                        </tr>-->
+
                         </tbody>
                     </table>
                 </div>
@@ -44,7 +76,11 @@ export default {
     data(){
         return {
             client: {},
-            stocks: []
+            stocks: [],
+            // total: null,
+            // cash_balance: null,
+            // performance: null,
+            // invested: null,
         }
     },
     created() {
@@ -54,6 +90,11 @@ export default {
                 this.stocks = response.data.data.stocks;
             });
     },
+    methods:{
+        numberFormat(n){
+            return "€ " + (Math.round(n * 100) / 100).toFixed(2);
+        }
+    }
 }
 </script>
 

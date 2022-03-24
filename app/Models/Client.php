@@ -29,7 +29,7 @@ class Client extends Model
 
     public function gain()
     {
-
+//        dd($this->stocks()->volume);
     }
 
     public function loss()

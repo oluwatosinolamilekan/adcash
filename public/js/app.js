@@ -5841,12 +5841,48 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ShowClientStock",
   data: function data() {
     return {
       client: {},
-      stocks: []
+      stocks: [] // total: null,
+      // cash_balance: null,
+      // performance: null,
+      // invested: null,
+
     };
   },
   created: function created() {
@@ -5857,6 +5893,11 @@ __webpack_require__.r(__webpack_exports__);
       _this.client = response.data.data;
       _this.stocks = response.data.data.stocks;
     });
+  },
+  methods: {
+    numberFormat: function numberFormat(n) {
+      return "€ " + (Math.round(n * 100) / 100).toFixed(2);
+    }
   }
 });
 
@@ -5906,12 +5947,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "CreateStock",
   data: function data() {
     return {
       form: {
-        name: ''
+        name: '',
+        unit_price: ''
       }
     };
   },
@@ -30163,44 +30213,106 @@ var render = function () {
           _c(
             "table",
             {
-              staticClass: "table table-hover table-product",
+              staticClass: "table table-product",
               staticStyle: { width: "100%" },
               attrs: { id: "productsTable" },
             },
             [
-              _vm._m(0),
+              _c("thead", [
+                _vm.stocks.length > 0
+                  ? _c("tr", [
+                      _c("th", [_vm._v("Name")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Volume")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Purchase Price")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Current Price")]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Gain/ Loss")]),
+                    ])
+                  : _vm._e(),
+              ]),
               _vm._v(" "),
               _c(
                 "tbody",
-                _vm._l(_vm.stocks, function (stock) {
-                  return _c("tr", { key: stock.id }, [
-                    _c("td", [_vm._v(_vm._s(stock.stock))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(stock.volume))]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(_vm._s(stock.volume * _vm.client.unit_price)),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(_vm.client.unit_price) +
-                          "\n                        "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(
-                        _vm._s(
-                          _vm.client.unit_price -
-                            stock.volume * _vm.client.unit_price
-                        )
-                      ),
-                    ]),
-                  ])
-                }),
-                0
+                [
+                  _vm.stocks.length === 0
+                    ? _c("tr", [_c("td", [_vm._v("No Client stock ")])])
+                    : _vm._l(_vm.stocks, function (stock) {
+                        return _c("tr", { key: stock.id }, [
+                          _c("td", [_vm._v(_vm._s(stock.stock))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(stock.volume))]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.numberFormat(
+                                  stock.volume * _vm.client.unit_price
+                                )
+                              )
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                " +
+                                _vm._s(
+                                  _vm.numberFormat(_vm.client.unit_price)
+                                ) +
+                                "\n                            "
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _vm.numberFormat(
+                            _vm.client.unit_price -
+                              stock.volume * _vm.client.unit_price
+                          ) >= 0
+                            ? _c("td", [
+                                _c("span", { staticClass: "text-success" }, [
+                                  _c("i", {
+                                    staticClass:
+                                      "mdi mdi-arrow-up-bold text-success",
+                                  }),
+                                  _vm._v(" "),
+                                  _c("span", [
+                                    _vm._v(
+                                      "+ " +
+                                        _vm._s(
+                                          _vm.numberFormat(
+                                            _vm.client.unit_price -
+                                              stock.volume *
+                                                _vm.client.unit_price
+                                          )
+                                        )
+                                    ),
+                                  ]),
+                                ]),
+                              ])
+                            : _c("td", [
+                                _c("span", { staticClass: "text-danger" }, [
+                                  _c("i", {
+                                    staticClass:
+                                      "mdi mdi-arrow-down-bold text-danger",
+                                  }),
+                                  _vm._v(" "),
+                                  _c("span", [
+                                    _vm._v(
+                                      _vm._s(
+                                        _vm.numberFormat(
+                                          _vm.client.unit_price -
+                                            stock.volume * _vm.client.unit_price
+                                        )
+                                      )
+                                    ),
+                                  ]),
+                                ]),
+                              ]),
+                        ])
+                      }),
+                ],
+                2
               ),
             ]
           ),
@@ -30209,26 +30321,7 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("Name")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Volume")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Purchase Price")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Current Price")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Gain/ Loss")]),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -30315,6 +30408,44 @@ var render = function () {
                               return
                             }
                             _vm.$set(_vm.form, "name", $event.target.value)
+                          },
+                        },
+                      }),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-xl-6" }, [
+                  _c("div", { staticClass: "mb-5" }, [
+                    _c(
+                      "label",
+                      { staticClass: "text-dark font-weight-medium" },
+                      [_vm._v("Unit Price")]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "input-group mb-3" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.unit_price,
+                            expression: "form.unit_price",
+                          },
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "number", required: "" },
+                        domProps: { value: _vm.form.unit_price },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.form,
+                              "unit_price",
+                              $event.target.value
+                            )
                           },
                         },
                       }),

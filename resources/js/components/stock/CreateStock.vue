@@ -21,6 +21,14 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-xl-6">
+                                <div class="mb-5">
+                                    <label class="text-dark font-weight-medium">Unit Price</label>
+                                    <div class="input-group mb-3">
+                                        <input type="number" class="form-control" v-model="form.unit_price" required/>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
                         <button class="btn btn-primary btn-pill mr-2" type="submit">Submit</button>
@@ -37,7 +45,8 @@ export default {
     data(){
         return{
             form:{
-                name: ''
+                name: '',
+                unit_price: ''
             }
         }
     },

@@ -15,7 +15,7 @@ class StoreStockRequest extends FormRequest
     {
         return [
             'name' => 'required',
-//            'unit_price' => 'nullable'
+            'unit_price' => 'required'
         ];
     }
 }

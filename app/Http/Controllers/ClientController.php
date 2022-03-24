@@ -25,6 +25,7 @@ class ClientController extends Controller
         }
     }
 
+
     public function store(StoreClientRequest  $request)
     {
         try {
@@ -35,6 +36,7 @@ class ClientController extends Controller
             return $this->errorResource($exception->getMessage());
         }
     }
+
 
     public function showClientStocks($id)
     {

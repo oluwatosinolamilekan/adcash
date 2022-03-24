@@ -13,31 +13,13 @@ class Client extends Model
     /**
      * @var array
      */
-
     protected $fillable = ['name'];
 
+    /**
+     * @return HasMany
+     */
     public function client_stocks(): HasMany
     {
         return $this->hasMany(ClientStock::class, 'client_id');
-    }
-
-    public function stocks(): HasMany
-    {
-        return $this->hasMany(ClientStock::class, 'stock_id');
-    }
-
-    public function sumClientStock()
-    {
-        return 1000;
-    }
-
-    public function gain()
-    {
-//        dd($this->stocks()->volume);
-    }
-
-    public function loss()
-    {
-
     }
 }

@@ -21,7 +21,7 @@
                         </thead>
                         <tbody>
                         <tr v-if="stocks.length === 0">
-                            <td>No Client stock </td>
+                            <td>Stock for <b>{{ client.name }}</b> is empty</td>
                         </tr>
                         <tr  v-for="stock in stocks" v-bind:key="stock.id" v-else>
 

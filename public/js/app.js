@@ -30279,7 +30279,13 @@ var render = function () {
                 "tbody",
                 [
                   _vm.stocks.length === 0
-                    ? _c("tr", [_c("td", [_vm._v("No Client stock ")])])
+                    ? _c("tr", [
+                        _c("td", [
+                          _vm._v("Stock for "),
+                          _c("b", [_vm._v(_vm._s(_vm.client.name))]),
+                          _vm._v(" is empty"),
+                        ]),
+                      ])
                     : _vm._l(_vm.stocks, function (stock) {
                         return _c("tr", { key: stock.id }, [
                           _c("td", [_vm._v(_vm._s(stock.stock))]),

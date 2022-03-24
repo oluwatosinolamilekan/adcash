@@ -17,7 +17,7 @@ class ClientResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'unit_price' => $this->unit_price,
+            'unit_price' => $this->stocks->sum('unit_price') ?? 0,
             'stocks' => ClientStockResource::collection($this->whenLoaded('client_stocks')),
         ];
     }

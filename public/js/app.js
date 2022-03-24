@@ -30030,9 +30030,7 @@ var render = function () {
                   return _c("tr", { key: client.id }, [
                     _c("td", [_vm._v(_vm._s(client.name))]),
                     _vm._v(" "),
-                    _c("td", [
-                      _vm._v(_vm._s(_vm.priceFormat(client.unit_price))),
-                    ]),
+                    _c("td", [_vm._v(_vm._s(_vm.priceFormat(0)))]),
                     _vm._v(" "),
                     _c("td"),
                     _vm._v(" "),

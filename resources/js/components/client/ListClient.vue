@@ -22,7 +22,7 @@
                         <tr  v-for="client in clients" v-bind:key="client.id">
 
                             <td>{{ client.name }}</td>
-                            <td>{{ priceFormat(client.unit_price) }}</td>
+                            <td>{{ priceFormat(0) }}</td>
                             <td></td>
                             <td>
                                 <div class="dropdown">

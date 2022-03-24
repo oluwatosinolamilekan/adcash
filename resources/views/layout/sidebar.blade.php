@@ -2,7 +2,7 @@
     <div id="sidebar" class="sidebar sidebar-with-footer">
         <!-- Aplication Brand -->
         <div class="app-brand">
-            <a href="#">
+            <a href="/">
                 <img src="{{asset('adcash.jpeg')}}" alt="Mono" class="img-thumbnail" style="height: 50px;">
                 <span class="brand-name">Adcash</span>
             </a>

@@ -10,6 +10,10 @@ class Client extends Model
 {
     use HasFactory;
 
+    /**
+     * @var array
+     */
+
     protected $fillable = ['name'];
 
     public function client_stocks(): HasMany

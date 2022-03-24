@@ -10,6 +10,10 @@ class ClientStock extends Model
 {
     use HasFactory;
 
+    /**
+     * @var array
+     */
+
     protected $fillable = ['client_id','stock_id','volume'];
 
     public function stock(): BelongsTo

@@ -9,5 +9,11 @@ class Stock extends Model
 {
     use HasFactory;
 
+    /**
+     * @var array
+     */
+
     protected $fillable = ['name','unit_price'];
+
+
 }

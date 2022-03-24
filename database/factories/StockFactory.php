@@ -15,7 +15,7 @@ class StockFactory extends Factory
     {
         return [
             'name' => $this->faker->unique()->company,
-            'unit_price' => $this->faker->randomNumber(1),
+            'unit_price' => rand(1,99),
         ];
     }
 }

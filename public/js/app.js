@@ -5959,6 +5959,7 @@ __webpack_require__.r(__webpack_exports__);
   name: "CreateStock",
   data: function data() {
     return {
+      erros: [],
       form: {
         name: '',
         unit_price: ''
@@ -6171,6 +6172,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js")["default"]);
 
+ // import VeeValidate from 'vee-validate';
 
 /**
  * The following block of code may be used to automatically register your
@@ -6190,7 +6192,8 @@ Vue.component('side-bar', (__webpack_require__(/*! ./components/SideBar.vue */ "
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]); // Vue.use(VeeValidate);
+
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
   routes: _routes__WEBPACK_IMPORTED_MODULE_0__.routes

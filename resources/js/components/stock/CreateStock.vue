@@ -44,6 +44,7 @@ export default {
     name: "CreateStock",
     data(){
         return{
+            erros: [],
             form:{
                 name: '',
                 unit_price: ''

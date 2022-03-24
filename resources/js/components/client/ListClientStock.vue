@@ -23,9 +23,23 @@
                         <tr  v-for="client in clients" v-bind:key="clients.id">
                             <td>{{ client.company }}</td>
                             <td>{{ client.volume }}</td>
-                            <td>{{ client.volume }}</td>
-                            <td>{{ client.volume }}</td>
-                            <td>{{ client.volume }}</td>
+                            <td>{{ priceFormat(client.volume * client.unit_price)}}</td>
+                            <td>
+                                {{priceFormat(client.unit_price)}}
+                            </td>
+                            <td v-if="priceFormat(client.unit_price - (client.volume * client.unit_price)) >= 0">
+                                 <span class="text-success">
+                                     <i class="mdi mdi-arrow-up-bold text-success"></i>
+                                     <span>+ {{ priceFormat(client.unit_price - (client.volume * client.unit_price))}}</span>
+                                </span>
+
+                            </td>
+                            <td v-else>
+                                <span class="text-danger">
+                                    <i class="mdi mdi-arrow-down-bold text-danger"></i>
+                                    <span>{{ priceFormat(client.unit_price - (client.volume * client.unit_price))}}</span>
+                                </span>
+                            </td>
                         </tr>
                         </tbody>
                     </table>

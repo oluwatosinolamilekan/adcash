@@ -17,9 +17,9 @@
         </li>
 
         <li>
-            <router-link to="/client-stocks" class="sidenav-item-link">
+            <router-link to="/create/client-stock"  class="sidenav-item-link">
                 <i class="mdi mdi-chart-pie"></i>
-                <span class="nav-text">Client Stock</span>
+                <span class="nav-text">Add Client Stock</span>
             </router-link>
         </li>
 

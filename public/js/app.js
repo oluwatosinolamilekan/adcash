@@ -5685,6 +5685,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ListClient",
   data: function data() {
@@ -5737,6 +5749,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -29595,12 +29621,14 @@ var render = function () {
             "router-link",
             {
               staticClass: "sidenav-item-link",
-              attrs: { to: "/client-stocks" },
+              attrs: { to: "/create/client-stock" },
             },
             [
               _c("i", { staticClass: "mdi mdi-chart-pie" }),
               _vm._v(" "),
-              _c("span", { staticClass: "nav-text" }, [_vm._v("Client Stock")]),
+              _c("span", { staticClass: "nav-text" }, [
+                _vm._v("Add Client Stock"),
+              ]),
             ]
           ),
         ],
@@ -29896,7 +29924,7 @@ var render = function () {
                           _vm._l(_vm.stocks, function (stock) {
                             return _c(
                               "option",
-                              { domProps: { value: stock.id } },
+                              { key: stock.id, domProps: { value: stock.id } },
                               [
                                 _vm._v(
                                   "\n                                            " +
@@ -30030,9 +30058,50 @@ var render = function () {
                   return _c("tr", { key: client.id }, [
                     _c("td", [_vm._v(_vm._s(client.name))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(_vm.priceFormat(0)))]),
+                    _c("td", [
+                      _vm._v(_vm._s(_vm.priceFormat(client.unit_price))),
+                    ]),
                     _vm._v(" "),
-                    _c("td"),
+                    _vm.priceFormat(
+                      client.unit_price - 100 * client.unit_price
+                    ) >= 0
+                      ? _c("td", [
+                          _c("span", { staticClass: "text-success" }, [
+                            _c("i", {
+                              staticClass: "mdi mdi-arrow-up-bold text-success",
+                            }),
+                            _vm._v(" "),
+                            _c("span", [
+                              _vm._v(
+                                "+ " +
+                                  _vm._s(
+                                    _vm.priceFormat(
+                                      client.unit_price -
+                                        100 * client.unit_price
+                                    )
+                                  )
+                              ),
+                            ]),
+                          ]),
+                        ])
+                      : _c("td", [
+                          _c("span", { staticClass: "text-danger" }, [
+                            _c("i", {
+                              staticClass:
+                                "mdi mdi-arrow-down-bold text-danger",
+                            }),
+                            _vm._v(" "),
+                            _c("span", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.priceFormat(
+                                    client.unit_price - 10 * client.unit_price
+                                  )
+                                )
+                              ),
+                            ]),
+                          ]),
+                        ]),
                     _vm._v(" "),
                     _c("td", [
                       _c("div", { staticClass: "dropdown" }, [
@@ -30167,11 +30236,63 @@ var render = function () {
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(client.volume))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(client.volume))]),
+                    _c("td", [
+                      _vm._v(
+                        _vm._s(
+                          _vm.priceFormat(client.volume * client.unit_price)
+                        )
+                      ),
+                    ]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(client.volume))]),
+                    _c("td", [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(_vm.priceFormat(client.unit_price)) +
+                          "\n                        "
+                      ),
+                    ]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(client.volume))]),
+                    _vm.priceFormat(
+                      client.unit_price - client.volume * client.unit_price
+                    ) >= 0
+                      ? _c("td", [
+                          _c("span", { staticClass: "text-success" }, [
+                            _c("i", {
+                              staticClass: "mdi mdi-arrow-up-bold text-success",
+                            }),
+                            _vm._v(" "),
+                            _c("span", [
+                              _vm._v(
+                                "+ " +
+                                  _vm._s(
+                                    _vm.priceFormat(
+                                      client.unit_price -
+                                        client.volume * client.unit_price
+                                    )
+                                  )
+                              ),
+                            ]),
+                          ]),
+                        ])
+                      : _c("td", [
+                          _c("span", { staticClass: "text-danger" }, [
+                            _c("i", {
+                              staticClass:
+                                "mdi mdi-arrow-down-bold text-danger",
+                            }),
+                            _vm._v(" "),
+                            _c("span", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.priceFormat(
+                                    client.unit_price -
+                                      client.volume * client.unit_price
+                                  )
+                                )
+                              ),
+                            ]),
+                          ]),
+                        ]),
                   ])
                 }),
                 0

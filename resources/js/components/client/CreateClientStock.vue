@@ -33,7 +33,7 @@
                                     <div class="input-group mb-3">
                                         <select class="form-control"  v-model="form.stock_id" required>
                                             <option value="" disabled>Select Option</option>
-                                            <option v-for="stock in stocks" :value="stock.id">
+                                            <option v-for="stock in stocks" v-bind:key="stock.id" :value="stock.id">
                                                 {{ stock.name }}
                                             </option>
                                         </select>

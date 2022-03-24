@@ -19,6 +19,7 @@ class StockResource extends JsonResource
           'id' => $this->id,
           'name' => $this->name,
           'unit_price' => $this->unit_price,
+          'client_count' => $this->clients->count(),
           'created_at' => $this->created_at,
           'updated_at' => date('d/m/Y', strtotime($this->updated_at)),
         ];

@@ -1,7 +1,7 @@
 <template>
     <ul class="nav sidebar-inner" id="sidebar-menu">
 
-        <li class="">
+        <li class="/">
             <router-link to="/" class="sidenav-item-link">
                 <i class="mdi mdi-briefcase-account-outline"></i>
                 <span class="nav-text">Stock</span>
@@ -17,9 +17,9 @@
         </li>
 
         <li>
-            <router-link to="/create/client-stock"  class="sidenav-item-link">
+            <router-link to="/client-stocks" class="sidenav-item-link">
                 <i class="mdi mdi-chart-pie"></i>
-                <span class="nav-text">Add Client Stock</span>
+                <span class="nav-text">Client Stock</span>
             </router-link>
         </li>
 

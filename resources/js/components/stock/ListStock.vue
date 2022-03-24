@@ -32,7 +32,8 @@
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                                         <router-link :to="{name: 'EditStock', params: { id: stock.id }}" class="dropdown-item">Update Unit Price</router-link>
-                                        <button class="dropdown-item" @click="deleteStock(stock.id)">Delete</button>
+                                        <button class="dropdown-item" @click="deleteStock(stock.id)" v-if="stock.client_count > 0 ">Delete</button>
+                                        <span class="dropdown-item" v-else> Stock cant be deleted, because it belongs to some clients </span>
                                     </div>
                                 </div>
                             </td>

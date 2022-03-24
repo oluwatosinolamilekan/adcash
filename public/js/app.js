@@ -6155,6 +6155,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ListStock",
   data: function data() {
@@ -29591,7 +29592,7 @@ var render = function () {
     [
       _c(
         "li",
-        {},
+        { staticClass: "/" },
         [
           _c(
             "router-link",
@@ -29629,14 +29630,12 @@ var render = function () {
             "router-link",
             {
               staticClass: "sidenav-item-link",
-              attrs: { to: "/create/client-stock" },
+              attrs: { to: "/client-stocks" },
             },
             [
               _c("i", { staticClass: "mdi mdi-chart-pie" }),
               _vm._v(" "),
-              _c("span", { staticClass: "nav-text" }, [
-                _vm._v("Add Client Stock"),
-              ]),
+              _c("span", { staticClass: "nav-text" }, [_vm._v("Client Stock")]),
             ]
           ),
         ],
@@ -30893,18 +30892,24 @@ var render = function () {
                               [_vm._v("Update Unit Price")]
                             ),
                             _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "dropdown-item",
-                                on: {
-                                  click: function ($event) {
-                                    return _vm.deleteStock(stock.id)
+                            stock.client_count > 0
+                              ? _c(
+                                  "button",
+                                  {
+                                    staticClass: "dropdown-item",
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.deleteStock(stock.id)
+                                      },
+                                    },
                                   },
-                                },
-                              },
-                              [_vm._v("Delete")]
-                            ),
+                                  [_vm._v("Delete")]
+                                )
+                              : _c("span", { staticClass: "dropdown-item" }, [
+                                  _vm._v(
+                                    " Stock cant be deleted, because it belongs to some clients "
+                                  ),
+                                ]),
                           ],
                           1
                         ),

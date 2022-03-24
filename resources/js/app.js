@@ -10,6 +10,9 @@ window.Vue = require('vue').default;
 import VueRouter from 'vue-router';
 import { routes } from './routes';
 
+import Vue from 'vue';
+import VueSweetalert2 from 'vue-sweetalert2';
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -32,6 +35,7 @@ Vue.component('side-bar', require('./components/SideBar.vue').default);
  */
 
 Vue.use(VueRouter);
+Vue.use(VueSweetalert2);
 
 Vue.mixin({
     methods:{
